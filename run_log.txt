@@ -1,0 +1,168 @@
+backend=minisim  agent implementation=numpy  episodes=150
+agents: ['J00', 'J01', 'J10', 'J11'] | actions per agent: {'J00': 4, 'J01': 4, 'J10': 4, 'J11': 4} | lanes per agent: {'J00': 8, 'J01': 8, 'J10': 8, 'J11': 8}
+fixed-time validation: {'avg_wait_s': 86.17, 'avg_queue_per_lane': 2.25, 'avg_total_queue': 71.84, 'throughput': 2935.33, 'departed': 3028.0, 'cum_reward': -5433.62}
+ep    1/150 eps=0.99 scale=0.90 reward= -11146.6 wait= 239.7s queue=5.69 thr=2579 [1s]
+ep    2/150 eps=0.98 scale=0.94 reward= -11213.3 wait= 269.6s queue=6.67 thr=2637 [1s]
+ep    3/150 eps=0.97 scale=1.16 reward= -12815.8 wait= 325.6s queue=9.78 thr=3037 [2s]
+ep    4/150 eps=0.96 scale=1.10 reward= -11835.1 wait= 279.3s queue=8.11 thr=3008 [3s]
+ep    5/150 eps=0.95 scale=0.98 reward= -10374.1 wait= 206.0s queue=5.06 thr=2740 [4s]
+ep    6/150 eps=0.95 scale=0.95 reward=  -9912.0 wait= 211.3s queue=5.22 thr=2634 [5s]
+ep    7/150 eps=0.94 scale=1.07 reward= -11647.4 wait= 256.1s queue=7.11 thr=2940 [6s]
+ep    8/150 eps=0.93 scale=0.88 reward=  -7941.2 wait= 154.7s queue=3.48 thr=2505 [7s]
+ep    9/150 eps=0.92 scale=1.10 reward= -11119.7 wait= 260.6s queue=7.28 thr=2916 [8s]
+ep   10/150 eps=0.91 scale=1.22 reward= -11416.9 wait= 281.2s queue=8.58 thr=3065 [9s] | VAL wait=151.6s reward=-5868.1
+ep   11/150 eps=0.90 scale=0.91 reward=  -8579.9 wait= 154.8s queue=3.49 thr=2515 [11s]
+ep   12/150 eps=0.89 scale=1.23 reward= -11651.0 wait= 275.6s queue=8.78 thr=3186 [12s]
+ep   13/150 eps=0.88 scale=1.10 reward= -10877.9 wait= 245.0s queue=6.84 thr=2985 [13s]
+ep   14/150 eps=0.87 scale=0.84 reward=  -7655.7 wait= 145.2s queue=3.24 thr=2532 [14s]
+ep   15/150 eps=0.86 scale=1.00 reward= -10017.9 wait= 220.4s queue=5.72 thr=2872 [15s]
+ep   16/150 eps=0.86 scale=1.20 reward= -11198.9 wait= 270.1s queue=8.10 thr=3069 [16s]
+ep   17/150 eps=0.85 scale=1.11 reward= -10655.5 wait= 216.4s queue=6.25 thr=3113 [17s]
+ep   18/150 eps=0.84 scale=0.95 reward=  -8873.8 wait= 180.8s queue=4.43 thr=2717 [19s]
+ep   19/150 eps=0.83 scale=1.13 reward= -10244.8 wait= 218.4s queue=6.47 thr=3139 [20s]
+ep   20/150 eps=0.82 scale=0.90 reward=  -7954.0 wait= 161.9s queue=3.82 thr=2634 [21s] | VAL wait=72.9s reward=-3911.6
+ep   21/150 eps=0.81 scale=0.84 reward=  -5556.9 wait= 106.5s queue=2.23 thr=2396 [22s]
+ep   22/150 eps=0.80 scale=0.87 reward=  -5751.7 wait= 110.9s queue=2.43 thr=2503 [23s]
+ep   23/150 eps=0.79 scale=0.95 reward=  -8020.4 wait= 152.9s queue=3.75 thr=2792 [24s]
+ep   24/150 eps=0.78 scale=1.01 reward=  -8389.5 wait= 161.6s queue=4.20 thr=2950 [26s]
+ep   25/150 eps=0.77 scale=0.92 reward=  -7279.1 wait= 131.7s queue=3.06 thr=2631 [27s]
+ep   26/150 eps=0.76 scale=1.17 reward= -10246.5 wait= 202.8s queue=6.17 thr=3352 [28s]
+ep   27/150 eps=0.76 scale=0.89 reward=  -4896.2 wait=  88.0s queue=1.94 thr=2536 [29s]
+ep   28/150 eps=0.75 scale=0.86 reward=  -6123.0 wait= 111.5s queue=2.43 thr=2502 [30s]
+ep   29/150 eps=0.74 scale=0.84 reward=  -4953.1 wait=  94.4s queue=2.04 thr=2485 [31s]
+ep   30/150 eps=0.73 scale=1.07 reward=  -8826.6 wait= 167.5s queue=4.59 thr=3084 [32s] | VAL wait=61.2s reward=-3357.2
+ep   31/150 eps=0.72 scale=1.18 reward=  -9995.0 wait= 223.6s queue=6.84 thr=3257 [33s]
+ep   32/150 eps=0.71 scale=1.07 reward=  -8350.9 wait= 171.8s queue=4.73 thr=3057 [34s]
+ep   33/150 eps=0.70 scale=1.22 reward= -10296.9 wait= 221.7s queue=6.72 thr=3198 [35s]
+ep   34/150 eps=0.69 scale=1.13 reward=  -8804.0 wait= 211.1s queue=6.06 thr=3132 [37s]
+ep   35/150 eps=0.68 scale=1.19 reward=  -9112.8 wait= 193.3s queue=5.90 thr=3282 [38s]
+ep   36/150 eps=0.67 scale=1.22 reward=  -8823.0 wait= 179.1s queue=5.35 thr=3282 [39s]
+ep   37/150 eps=0.67 scale=1.05 reward=  -7694.4 wait= 131.6s queue=3.56 thr=3070 [40s]
+ep   38/150 eps=0.66 scale=1.22 reward=  -9413.3 wait= 243.9s queue=7.50 thr=3258 [41s]
+ep   39/150 eps=0.65 scale=1.02 reward=  -7593.4 wait= 141.4s queue=3.83 thr=3052 [42s]
+ep   40/150 eps=0.64 scale=0.92 reward=  -5273.5 wait= 101.9s queue=2.36 thr=2658 [44s] | VAL wait=65.2s reward=-3666.5
+ep   41/150 eps=0.63 scale=1.00 reward=  -7117.7 wait= 130.1s queue=3.36 thr=2948 [45s]
+ep   42/150 eps=0.62 scale=1.10 reward=  -8251.3 wait= 175.6s queue=5.04 thr=3152 [46s]
+ep   43/150 eps=0.61 scale=0.95 reward=  -5711.8 wait= 110.0s queue=2.64 thr=2745 [47s]
+ep   44/150 eps=0.60 scale=1.21 reward= -10132.6 wait= 243.3s queue=7.43 thr=3270 [48s]
+ep   45/150 eps=0.59 scale=0.92 reward=  -4292.2 wait=  78.3s queue=1.79 thr=2643 [49s]
+ep   46/150 eps=0.58 scale=0.95 reward=  -4784.5 wait=  85.5s queue=2.08 thr=2802 [50s]
+ep   47/150 eps=0.57 scale=0.92 reward=  -4960.8 wait=  91.1s queue=2.11 thr=2653 [51s]
+ep   48/150 eps=0.57 scale=0.96 reward=  -6053.5 wait= 115.0s queue=2.90 thr=2890 [53s]
+ep   49/150 eps=0.56 scale=0.80 reward=  -2729.0 wait=  63.6s queue=1.24 thr=2267 [54s]
+ep   50/150 eps=0.55 scale=1.08 reward=  -7544.3 wait= 142.8s queue=3.99 thr=3095 [55s] | VAL wait=59.6s reward=-3224.1
+ep   51/150 eps=0.54 scale=0.93 reward=  -4787.5 wait=  84.0s queue=1.98 thr=2723 [56s]
+ep   52/150 eps=0.53 scale=0.83 reward=  -3060.3 wait=  67.8s queue=1.38 thr=2378 [58s]
+ep   53/150 eps=0.52 scale=1.08 reward=  -6927.6 wait= 125.1s queue=3.43 thr=3105 [59s]
+ep   54/150 eps=0.51 scale=0.88 reward=  -4432.2 wait=  86.7s queue=1.93 thr=2584 [60s]
+ep   55/150 eps=0.50 scale=0.94 reward=  -4142.6 wait=  76.2s queue=1.74 thr=2660 [61s]
+ep   56/150 eps=0.49 scale=1.00 reward=  -4679.7 wait=  86.8s queue=2.17 thr=2878 [62s]
+ep   57/150 eps=0.48 scale=0.87 reward=  -3554.1 wait=  71.4s queue=1.54 thr=2500 [63s]
+ep   58/150 eps=0.48 scale=0.90 reward=  -4699.3 wait=  84.7s queue=1.95 thr=2656 [64s]
+ep   59/150 eps=0.47 scale=1.01 reward=  -6007.3 wait= 130.3s queue=3.52 thr=3086 [65s]
+ep   60/150 eps=0.46 scale=1.01 reward=  -5134.2 wait=  83.4s queue=2.13 thr=2927 [66s] | VAL wait=63.6s reward=-3408.1
+ep   61/150 eps=0.45 scale=0.91 reward=  -5819.1 wait= 116.3s queue=2.82 thr=2674 [68s]
+ep   62/150 eps=0.44 scale=0.93 reward=  -4051.8 wait=  74.9s queue=1.79 thr=2789 [69s]
+ep   63/150 eps=0.43 scale=0.93 reward=  -3963.5 wait=  72.0s queue=1.67 thr=2671 [70s]
+ep   64/150 eps=0.42 scale=0.92 reward=  -4007.8 wait=  71.4s queue=1.73 thr=2797 [71s]
+ep   65/150 eps=0.41 scale=1.02 reward=  -5209.4 wait=  89.9s queue=2.32 thr=2981 [72s]
+ep   66/150 eps=0.40 scale=0.90 reward=  -3529.9 wait=  68.0s queue=1.58 thr=2697 [73s]
+ep   67/150 eps=0.39 scale=1.02 reward=  -5253.8 wait=  99.9s queue=2.66 thr=3075 [74s]
+ep   68/150 eps=0.38 scale=0.91 reward=  -3250.8 wait=  65.0s queue=1.47 thr=2640 [75s]
+ep   69/150 eps=0.38 scale=1.18 reward=  -6691.1 wait= 126.9s queue=3.86 thr=3464 [77s]
+ep   70/150 eps=0.37 scale=0.88 reward=  -2947.7 wait=  62.1s queue=1.38 thr=2592 [78s] | VAL wait=55.2s reward=-2895.7
+ep   71/150 eps=0.36 scale=1.19 reward=  -7633.8 wait= 171.0s queue=5.05 thr=3172 [79s]
+ep   72/150 eps=0.35 scale=0.88 reward=  -2910.8 wait=  62.4s queue=1.36 thr=2553 [80s]
+ep   73/150 eps=0.34 scale=1.14 reward=  -6609.9 wait= 175.5s queue=4.96 thr=3043 [81s]
+ep   74/150 eps=0.33 scale=1.08 reward=  -5432.3 wait= 101.1s queue=2.85 thr=3245 [82s]
+ep   75/150 eps=0.32 scale=0.89 reward=  -3105.1 wait=  62.5s queue=1.39 thr=2613 [83s]
+ep   76/150 eps=0.31 scale=1.14 reward=  -5496.3 wait=  93.9s queue=2.74 thr=3334 [85s]
+ep   77/150 eps=0.30 scale=0.91 reward=  -2972.9 wait=  61.0s queue=1.39 thr=2684 [86s]
+ep   78/150 eps=0.29 scale=0.84 reward=  -2504.3 wait=  55.4s queue=1.21 thr=2565 [87s]
+ep   79/150 eps=0.29 scale=1.08 reward=  -4292.3 wait=  69.7s queue=1.91 thr=3181 [88s]
+ep   80/150 eps=0.28 scale=1.04 reward=  -5129.1 wait=  94.1s queue=2.51 thr=3086 [89s] | VAL wait=55.8s reward=-2959.5
+ep   81/150 eps=0.27 scale=1.09 reward=  -4248.9 wait=  67.9s queue=1.89 thr=3220 [91s]
+ep   82/150 eps=0.26 scale=0.88 reward=  -2897.5 wait=  60.6s queue=1.35 thr=2611 [92s]
+ep   83/150 eps=0.25 scale=0.91 reward=  -2625.2 wait=  56.4s queue=1.27 thr=2634 [93s]
+ep   84/150 eps=0.24 scale=1.11 reward=  -5072.7 wait=  82.3s queue=2.37 thr=3303 [94s]
+ep   85/150 eps=0.23 scale=0.84 reward=  -2357.5 wait=  55.3s queue=1.16 thr=2472 [95s]
+ep   86/150 eps=0.22 scale=1.19 reward=  -5668.6 wait=  93.4s queue=2.87 thr=3545 [96s]
+ep   87/150 eps=0.21 scale=0.99 reward=  -3449.9 wait=  63.5s queue=1.58 thr=2913 [97s]
+ep   88/150 eps=0.20 scale=1.08 reward=  -4948.9 wait=  90.6s queue=2.51 thr=3193 [98s]
+ep   89/150 eps=0.19 scale=0.94 reward=  -3252.3 wait=  61.1s queue=1.47 thr=2820 [99s]
+ep   90/150 eps=0.19 scale=0.88 reward=  -2206.8 wait=  52.7s queue=1.11 thr=2493 [100s] | VAL wait=54.9s reward=-2868.8
+ep   91/150 eps=0.18 scale=0.80 reward=  -1880.2 wait=  47.6s queue=0.96 thr=2386 [102s]
+ep   92/150 eps=0.17 scale=0.89 reward=  -2297.6 wait=  52.8s queue=1.15 thr=2566 [103s]
+ep   93/150 eps=0.16 scale=1.19 reward=  -5363.3 wait=  90.5s queue=2.77 thr=3535 [104s]
+ep   94/150 eps=0.15 scale=1.24 reward=  -6809.4 wait= 135.3s queue=4.27 thr=3563 [105s]
+ep   95/150 eps=0.14 scale=1.00 reward=  -3614.5 wait=  63.8s queue=1.63 thr=2976 [106s]
+ep   96/150 eps=0.13 scale=0.97 reward=  -2708.8 wait=  54.9s queue=1.34 thr=2866 [107s]
+ep   97/150 eps=0.12 scale=0.92 reward=  -2758.3 wait=  56.6s queue=1.32 thr=2728 [108s]
+ep   98/150 eps=0.11 scale=1.23 reward=  -5945.1 wait= 110.4s queue=3.43 thr=3544 [109s]
+ep   99/150 eps=0.10 scale=0.83 reward=  -1904.4 wait=  47.7s queue=0.98 thr=2424 [110s]
+ep  100/150 eps=0.10 scale=0.98 reward=  -3141.3 wait=  58.7s queue=1.50 thr=2986 [111s] | VAL wait=53.3s reward=-2734.0
+ep  101/150 eps=0.09 scale=0.88 reward=  -2006.6 wait=  47.4s queue=1.05 thr=2623 [112s]
+ep  102/150 eps=0.08 scale=0.91 reward=  -2143.6 wait=  49.4s queue=1.09 thr=2622 [113s]
+ep  103/150 eps=0.07 scale=1.15 reward=  -5108.7 wait=  86.5s queue=2.55 thr=3402 [114s]
+ep  104/150 eps=0.06 scale=0.89 reward=  -2178.5 wait=  50.4s queue=1.11 thr=2605 [116s]
+ep  105/150 eps=0.05 scale=1.05 reward=  -3921.3 wait=  76.9s queue=2.09 thr=3146 [117s]
+ep  106/150 eps=0.05 scale=0.97 reward=  -2603.2 wait=  52.5s queue=1.27 thr=2845 [118s]
+ep  107/150 eps=0.05 scale=1.03 reward=  -3404.5 wait=  60.4s queue=1.59 thr=3074 [119s]
+ep  108/150 eps=0.05 scale=0.95 reward=  -2354.7 wait=  50.9s queue=1.18 thr=2748 [120s]
+ep  109/150 eps=0.05 scale=0.93 reward=  -2414.3 wait=  51.7s queue=1.20 thr=2730 [121s]
+ep  110/150 eps=0.05 scale=0.93 reward=  -2125.1 wait=  49.3s queue=1.09 thr=2610 [122s] | VAL wait=54.2s reward=-2743.2
+ep  111/150 eps=0.05 scale=0.84 reward=  -1881.8 wait=  47.3s queue=0.98 thr=2456 [123s]
+ep  112/150 eps=0.05 scale=1.02 reward=  -2731.9 wait=  53.4s queue=1.36 thr=2993 [124s]
+ep  113/150 eps=0.05 scale=1.20 reward=  -6402.1 wait= 154.2s queue=4.55 thr=3168 [125s]
+ep  114/150 eps=0.05 scale=1.23 reward=  -6883.5 wait= 181.8s queue=5.19 thr=3036 [126s]
+ep  115/150 eps=0.05 scale=0.81 reward=  -1684.9 wait=  45.0s queue=0.90 thr=2374 [127s]
+ep  116/150 eps=0.05 scale=1.21 reward=  -5996.7 wait= 131.1s queue=4.03 thr=3371 [128s]
+ep  117/150 eps=0.05 scale=0.85 reward=  -1900.6 wait=  46.5s queue=0.98 thr=2499 [129s]
+ep  118/150 eps=0.05 scale=1.14 reward=  -4623.9 wait=  73.6s queue=2.18 thr=3426 [130s]
+ep  119/150 eps=0.05 scale=1.20 reward=  -5533.4 wait= 104.5s queue=3.18 thr=3493 [131s]
+ep  120/150 eps=0.05 scale=0.88 reward=  -2026.5 wait=  48.4s queue=1.05 thr=2552 [132s] | VAL wait=53.3s reward=-2737.6
+ep  121/150 eps=0.05 scale=0.95 reward=  -2520.4 wait=  51.6s queue=1.25 thr=2851 [134s]
+ep  122/150 eps=0.05 scale=0.97 reward=  -2511.3 wait=  52.6s queue=1.26 thr=2804 [135s]
+ep  123/150 eps=0.05 scale=0.96 reward=  -2703.6 wait=  54.3s queue=1.32 thr=2863 [135s]
+ep  124/150 eps=0.05 scale=1.03 reward=  -3412.4 wait=  61.0s queue=1.57 thr=3008 [137s]
+ep  125/150 eps=0.05 scale=0.80 reward=  -1791.3 wait=  47.0s queue=0.94 thr=2375 [138s]
+ep  126/150 eps=0.05 scale=0.99 reward=  -2621.6 wait=  52.4s queue=1.31 thr=2942 [139s]
+ep  127/150 eps=0.05 scale=1.19 reward=  -5449.7 wait= 101.0s queue=3.11 thr=3466 [140s]
+ep  128/150 eps=0.05 scale=0.84 reward=  -1968.5 wait=  47.7s queue=1.02 thr=2515 [141s]
+ep  129/150 eps=0.05 scale=1.02 reward=  -3026.0 wait=  56.0s queue=1.48 thr=3091 [142s]
+ep  130/150 eps=0.05 scale=1.02 reward=  -2480.1 wait=  50.7s queue=1.27 thr=2959 [143s] | VAL wait=53.7s reward=-2747.7
+ep  131/150 eps=0.05 scale=1.15 reward=  -4049.6 wait=  64.1s queue=1.87 thr=3397 [144s]
+ep  132/150 eps=0.05 scale=1.23 reward=  -8628.7 wait= 301.0s queue=8.44 thr=2606 [146s]
+ep  133/150 eps=0.05 scale=1.12 reward=  -4128.5 wait=  72.8s queue=2.12 thr=3368 [147s]
+ep  134/150 eps=0.05 scale=0.92 reward=  -2289.0 wait=  50.3s queue=1.18 thr=2773 [148s]
+ep  135/150 eps=0.05 scale=1.10 reward=  -4887.9 wait= 102.0s queue=2.87 thr=3222 [149s]
+ep  136/150 eps=0.05 scale=0.96 reward=  -2494.6 wait=  52.9s queue=1.26 thr=2790 [150s]
+ep  137/150 eps=0.05 scale=1.15 reward=  -3847.7 wait=  63.1s queue=1.81 thr=3340 [151s]
+ep  138/150 eps=0.05 scale=1.10 reward=  -3440.8 wait=  59.9s queue=1.68 thr=3271 [152s]
+ep  139/150 eps=0.05 scale=1.24 reward=  -6519.5 wait= 148.5s queue=4.78 thr=3579 [153s]
+ep  140/150 eps=0.05 scale=1.19 reward=  -4159.8 wait=  65.2s queue=1.95 thr=3458 [154s] | VAL wait=51.4s reward=-2612.9
+ep  141/150 eps=0.05 scale=0.82 reward=  -1655.7 wait=  44.0s queue=0.89 thr=2409 [156s]
+ep  142/150 eps=0.05 scale=0.93 reward=  -2190.6 wait=  49.1s queue=1.13 thr=2715 [157s]
+ep  143/150 eps=0.05 scale=1.19 reward=  -7557.9 wait= 229.8s queue=6.35 thr=2810 [158s]
+ep  144/150 eps=0.05 scale=1.07 reward=  -3103.6 wait=  55.4s queue=1.49 thr=3145 [159s]
+ep  145/150 eps=0.05 scale=0.95 reward=  -2175.6 wait=  47.8s queue=1.14 thr=2809 [161s]
+ep  146/150 eps=0.05 scale=0.83 reward=  -1715.9 wait=  44.9s queue=0.93 thr=2448 [162s]
+ep  147/150 eps=0.05 scale=1.14 reward=  -4229.0 wait=  69.7s queue=2.00 thr=3312 [163s]
+ep  148/150 eps=0.05 scale=0.80 reward=  -1596.3 wait=  44.3s queue=0.86 thr=2310 [164s]
+ep  149/150 eps=0.05 scale=0.84 reward=  -1967.3 wait=  49.0s queue=1.02 thr=2445 [165s]
+ep  150/150 eps=0.05 scale=1.25 reward=  -7221.8 wait= 227.2s queue=6.52 thr=3006 [166s] | VAL wait=52.7s reward=-2722.1
+best checkpoint: {'episode': 140, 'val_avg_wait_s': 51.4037566576942}
+          controller  demand_scale  avg_wait_s_mean  avg_wait_s_std  avg_queue_per_lane_mean  avg_queue_per_lane_std  avg_total_queue_mean  avg_total_queue_std  throughput_mean  throughput_std  departed_mean  departed_std  cum_reward_mean  cum_reward_std
+0   Fixed-time (20s)           0.7            59.71            1.28                     1.06                    0.04                 33.85                 1.15           2035.8           30.76         2085.2         38.96         -2141.96           96.82
+1   Fixed-time (20s)           1.0            80.54            6.30                     2.07                    0.18                 66.26                 5.84           2922.0           52.33         2997.6         54.57         -4847.43          409.19
+2   Fixed-time (20s)           1.3           165.64           19.27                     5.59                    0.73                178.77                23.49           3666.0           50.81         3896.3         78.21         -8789.98          565.77
+3   Fixed-time (30s)           0.7            76.92            1.25                     1.37                    0.03                 43.90                 0.94           2024.3           29.64         2085.2         38.96         -3207.24           71.73
+4   Fixed-time (30s)           1.0            86.62            3.24                     2.23                    0.11                 71.46                 3.46           2906.7           50.35         2997.6         54.57         -5402.12          268.47
+5   Fixed-time (30s)           1.3           125.51           12.59                     4.23                    0.48                135.28                15.21           3760.9           69.93         3896.3         78.21         -9043.81          582.21
+6   Fixed-time (40s)           0.7            94.50            1.60                     1.70                    0.05                 54.30                 1.60           2022.4           30.54         2085.2         38.96         -4465.51          144.05
+7   Fixed-time (40s)           1.0           101.86            2.82                     2.64                    0.10                 84.42                 3.35           2901.0           49.11         2997.6         54.57         -6940.38          232.46
+8   Fixed-time (40s)           1.3           132.04           10.00                     4.46                    0.40                142.63                12.84           3763.8           71.37         3896.3         78.21         -9941.05          374.95
+9    Multi-agent DQN           0.7            39.06            0.95                     0.66                    0.03                 21.26                 0.85           2054.1           34.11         2085.2         38.96         -1215.85           58.87
+10   Multi-agent DQN           1.0            51.33            1.67                     1.28                    0.06                 41.11                 1.89           2945.7           52.39         2997.6         54.57         -2569.77          159.30
+11   Multi-agent DQN           1.3           293.91           94.78                     7.85                    2.20                251.17                70.55           2573.8          460.01         3157.5        274.62         -7717.99         1192.83
+results written to /home/claude/traffic_signal_marl/results  (180.3 s)

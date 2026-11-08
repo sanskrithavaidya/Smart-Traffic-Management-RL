@@ -1,0 +1,10 @@
+# Python 3.13 + an existing Eclipse SUMO 1.28 installation (SUMO itself is NOT installed by pip here)
+torch>=2.5
+numpy>=2.1
+pandas>=2.2
+matplotlib>=3.9
+traci>=1.22          # TraCI client; if pip cannot match 1.28 exactly, the SUMO_HOME\tools copy is used as fallback
+# --- only needed for make_report.py (PDF / PPTX generation)
+reportlab>=4.2
+python-pptx>=1.0
+Pillow>=10.4

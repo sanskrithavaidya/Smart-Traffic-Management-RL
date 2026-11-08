@@ -1,0 +1,3 @@
+episode,controller,average_stopped_time_per_departed_vehicle,average_queue_length_per_lane,total_departed,total_arrived,cumulative_reward,simulation_steps
+1,Multi-Agent DQN,5.3232323232323235,0.10333333333333333,99,18,-62.400000000000006,100
+1,Fixed-Time,7.540816326530612,0.14104166666666668,98,16,-90.71333333333334,100

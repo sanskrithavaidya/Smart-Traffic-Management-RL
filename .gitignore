@@ -9,4 +9,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 *.pth
-*.pt
+*.pt.venv/
+__pycache__/
+sumo_files/
