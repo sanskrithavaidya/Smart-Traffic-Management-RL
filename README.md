@@ -23,17 +23,17 @@ Four signalised intersections (2 x 2 grid) are controlled by **four independent 
 and compared with **fixed-time control**. Stack: Python 3.13, Eclipse SUMO 1.28, TraCI, PyTorch, NumPy, Pandas, Matplotlib.
 
 ## Results currently stored in `results/`
-Backend that produced them: **built-in Python mesoscopic simulator (NOT SUMO)**; DQN implementation: **numpy**;
-150 training episodes; mean over 10 unseen test seeds, demand scale 1.0.
+Backend that produced them: **Eclipse SUMO (TraCI)**; DQN implementation: **torch**;
+30 training episodes; mean over 5 unseen test seeds, demand scale 1.0.
 
 | Metric | Fixed-time (30s) | Multi-agent DQN | Change |
 |---|---|---|---|
-| Average waiting time (s / vehicle) | 86.6 | 51.3 | -40.7% |
-| Average queue length (halting veh / lane) | 2.23 | 1.28 | -42.5% |
-| Vehicle throughput (veh completed / hour) | 2907 | 2946 | +1.3% |
-| Cumulative reward (sum of 4 agents) | -5402 | -2570 | -52.4% |
+| Average waiting time (s / vehicle) | 18.2 | 9.9 | -45.4% |
+| Average queue length (halting veh / lane) | 0.49 | 0.29 | -39.7% |
+| Vehicle throughput (veh completed / hour) | 2926 | 2930 | +0.1% |
+| Cumulative reward (sum of 4 agents) | -763 | -395 | -48.2% |
 
-> IMPORTANT: the numbers in this document were produced with the project's built-in Python mesoscopic simulator (tsc/minisim_env.py) because SUMO, TraCI and PyTorch were not available in the environment that built this report. The SUMO code path (tsc/sumo_env.py, tsc/network.py, tsc/agents/dqn_torch.py) is complete but has NOT been executed to produce these figures. Running 'python run_all.py --backend sumo' on a machine with SUMO 1.28 regenerates every table, figure, slide and this PDF from real SUMO runs.
+> All results in this document were produced by running the SUMO simulation through TraCI on the machine that built this report.
 
 ## Run on Windows with VS Code
 ```powershell
