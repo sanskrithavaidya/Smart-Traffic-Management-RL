@@ -258,7 +258,7 @@ def build_pptx(specs, path, f):
                                  Inches(iw * sc), Inches(ih * sc))
         if sp.get("table"):
             rows = [("Component", "Design"), ("Agents", "4 (one per junction)"),
-                    ("Actions / agent", f"{f['meta']['sim']['delta_time']} s step, 4 green phases"),
+                    ("Actions / agent", f"{f['meta']['sim']['delta_time']} s step, {f['n_actions']} green phases"),
                     ("State dim / agent", str(f["state_dim"])), ("Episode", "3600 s = 360 decisions")]
             tbl = s.shapes.add_table(len(rows), 2, Inches(7.9), Inches(1.6), Inches(4.9), Inches(2.4)).table
             for ri, row in enumerate(rows):
@@ -318,7 +318,7 @@ class SlideFlowable(Flowable):
             c.drawImage(sp["image"], bx * s, Y(by + bh), bw * s, bh * s, preserveAspectRatio=True, anchor="c", mask="auto")
         if sp.get("table"):
             rows = [("Component", "Design"), ("Agents", "4 (one per junction)"),
-                    ("Actions / agent", f"{self.f['meta']['sim']['delta_time']} s step, 4 green phases"),
+                    ("Actions / agent", f"{self.f['meta']['sim']['delta_time']} s step, {self.f['n_actions']} green phases"),
                     ("State dim / agent", str(self.f["state_dim"])), ("Episode", "3600 s = 360 decisions")]
             ty = 1.6
             for ri, (a, b) in enumerate(rows):
@@ -793,13 +793,9 @@ throughput (completed trips per hour), cumulative reward (sum of local rewards, 
 def build(out=None):
     out = Path(out or ROOT / "results")
     f = facts(out)
-    # derive state dimension / actions from the stored model
-    first_w = None
-    from tsc.minisim_env import PHASES
-    f["n_actions"] = len(PHASES) if f["backend"] == "minisim" else 4
-    f["state_dim"] = 8 * 3 + f["n_actions"] + 1 + 2
-    if f["backend"] == "sumo":
-        f["state_dim"] = f"{f['state_dim']} (typical; read from network: 8 lanes x 3 + phases + 1 + 2)"
+    # actual action / state sizes of the executed backend (stored by run_all.py)
+    f["n_actions"] = f["meta"].get("n_actions", 4)
+    f["state_dim"] = f["meta"].get("state_dim", 8 * 3 + f["n_actions"] + 1 + 2)
     figs = {"network": str(out / "network_diagram.png"), "arch": str(out / "architecture.png"),
             "learning": str(out / "Learning_Curves.png"), "perf": str(out / "performance_across_training.png"),
             "bars": str(out / "comparison_bars.png")}

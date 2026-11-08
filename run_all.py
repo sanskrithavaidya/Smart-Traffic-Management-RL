@@ -136,6 +136,8 @@ def main():
         "runtime_s": round(time.time() - t_start, 1), "sim": asdict(cfg), "dqn": asdict(hp),
         "train": {k: (list(v) if isinstance(v, tuple) else v) for k, v in asdict(tc).items()},
         "fixed_val": fixed_val,
+        "n_actions": int(env.n_actions[env.agents[0]]),
+        "state_dim": int(3 * env.n_lanes[env.agents[0]] + env.n_actions[env.agents[0]] + 1 + 2),
     }
     (out / "run_meta.json").write_text(json.dumps(meta, indent=2))
     if hasattr(env, "close"):
