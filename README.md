@@ -1,4 +1,23 @@
 # Traffic-Signal Coordination with Multi-Agent DQN (Project 10)
+**Project 10, Unit 5: Real-World RL Homework Projects**
+
+## Team
+
+| Name | Roll number |
+|---|---|
+| Sanskritha Vaidya | 100523729059 |
+| Shanmukhi Kondam | 100523729090 |
+| Prem Kumar Batharaju | 100523729006 |
+| Likhitha Vadluri | 100523729058 |
+
+## Deliverables (all in `results/`)
+| Deliverable | File |
+|---|---|
+| Complete PDF (formulation, architecture, code, methodology, results, slides, limitations, references) | [Traffic_Signal_Coordination_Complete_Submission.pdf](results/Traffic_Signal_Coordination_Complete_Submission.pdf) |
+| Five presentation slides | [Five_Slide_Presentation.pptx](results/Five_Slide_Presentation.pptx) |
+| Experiment results (CSV) | [Experiment_Results.csv](results/Experiment_Results.csv), [summary.csv](results/summary.csv) |
+| Learning curves | [Learning_Curves.png](results/Learning_Curves.png) |
+| Source code | `run_all.py`, `tsc/`, `check_setup.py`, `make_report.py` |
 
 Four signalised intersections (2 x 2 grid) are controlled by **four independent Double-DQN agents**
 and compared with **fixed-time control**. Stack: Python 3.13, Eclipse SUMO 1.28, TraCI, PyTorch, NumPy, Pandas, Matplotlib.

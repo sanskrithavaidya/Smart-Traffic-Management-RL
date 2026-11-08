@@ -37,6 +37,25 @@ PDF_NAME = "Traffic_Signal_Coordination_Complete_Submission.pdf"
 PPT_NAME = "Five_Slide_Presentation.pptx"
 
 
+# =============================================================================== team
+def load_team():
+    """Reads team.json (edit it with your names). Empty fields are simply left out."""
+    try:
+        t = json.loads((ROOT / "team.json").read_text(encoding="utf-8"))
+    except Exception:
+        t = {}
+    members = [x for x in t.get("members", []) if str(x.get("name", "")).strip()]
+    return {"label": str(t.get("project_label", "")).strip(), "course": str(t.get("course", "")).strip(),
+            "team_name": str(t.get("team_name", "")).strip(), "members": members}
+
+
+def team_line(team):
+    if not team["members"]:
+        return ""
+    names = ", ".join(x["name"] + (f" ({x['roll']})" if str(x.get("roll", "")).strip() else "") for x in team["members"])
+    return ("Team " + team["team_name"] + ": " if team["team_name"] else "Team: ") + names
+
+
 # =============================================================================== data
 def load(out):
     out = Path(out)
@@ -69,7 +88,8 @@ def facts(out):
         better = (D[k] < F[k]) if lower_better else (D[k] > F[k])
         rows.append(dict(key=k, label=label, fmt=fmt, fixed_m=fm, fixed_s=fs, dqn_m=dm, dqn_s=ds,
                          change=pct(dm, fm), wins=int(better.sum()), n=len(D), lower_better=lower_better))
-    return dict(meta=meta, res=res, summ=summ, train=train, val=val, rows=rows, fname=fname,
+    team = load_team()
+    return dict(team=team, meta=meta, res=res, summ=summ, train=train, val=val, rows=rows, fname=fname,
                 F=F, D=D, scale=sc, backend=meta["backend"], impl=meta["agent_impl"],
                 n_test=len(D), n_train=len(train))
 
@@ -266,6 +286,12 @@ def build_pptx(specs, path, f):
                     c = tbl.cell(ri, ci)
                     c.text = v
                     c.text_frame.paragraphs[0].runs[0].font.size = Pt(13)
+        if i == 1 and team_line(f["team"]):
+            tb = s.shapes.add_textbox(Inches(0.5), Inches(6.45), Inches(7.0), Inches(0.5))
+            tb.text_frame.word_wrap = True
+            r = tb.text_frame.paragraphs[0].add_run()
+            r.text = team_line(f["team"])
+            r.font.size, r.font.bold, r.font.color.rgb = Pt(13), True, rgb(NAVY)
         ft = s.shapes.add_textbox(Inches(0.5), Inches(7.08), Inches(12.3), Inches(0.35))
         r = ft.text_frame.paragraphs[0].add_run()
         r.text = f"Traffic-signal coordination | Project 10 | results backend: {backend_label(f)} | slide {i} of 5"
@@ -329,6 +355,11 @@ class SlideFlowable(Flowable):
                 c.drawString(8.0 * s, Y(ty + 0.32), a)
                 c.drawString(9.9 * s, Y(ty + 0.32), b)
                 ty += 0.48
+        if sp.get("no") == 1 and team_line(self.f["team"]):
+            tp = P(team_line(self.f["team"]), ParagraphStyle("tl", fontName="Helvetica-Bold", fontSize=13 * k,
+                                                              leading=16 * k, textColor=colors.HexColor(NAVY)))
+            tw, th = tp.wrap(7.0 * s, H)
+            tp.drawOn(c, 0.5 * s, Y(6.45) - th)
         c.setFillColor(colors.HexColor(GREY))
         c.setFont("Helvetica", 10 * k)
         c.drawString(0.5 * s, Y(7.25), f"Traffic-signal coordination | Project 10 | results backend: "
@@ -429,6 +460,19 @@ FILE_ROLE = {
 }
 
 
+def cover_team(f, st, W):
+    t = f["team"]
+    items = []
+    head = " | ".join(x for x in [t["label"], t["course"], ("Team: " + t["team_name"]) if t["team_name"] else ""] if x)
+    if head:
+        items.append(Paragraph(head.replace("&", "&amp;"), ParagraphStyle("ch", fontName="Helvetica-Bold", fontSize=10.5,
+                                                                          leading=14, textColor=colors.HexColor(NAVY))))
+    if t["members"]:
+        rows = [["Name", "Roll number"]] + [[x["name"], str(x.get("roll", ""))] for x in t["members"]]
+        items += [Spacer(1, 3 * mm), tbl(rows, [W * 0.55, W * 0.3], fs=9, align_right_from=None)]
+    return items
+
+
 def build_pdf(out, f, specs, figs):
     st = styles()
     m, rows = f["meta"], {r["key"]: r for r in f["rows"]}
@@ -436,20 +480,21 @@ def build_pdf(out, f, specs, figs):
     W = A4[0] - 36 * mm
     S = []
     # ---------------------------------------------------------------- cover
-    S += [Spacer(1, 38 * mm), P("Traffic-Signal Coordination with Multi-Agent Deep Q-Networks", ParagraphStyle(
+    S += [Spacer(1, 22 * mm), P("Traffic-Signal Coordination with Multi-Agent Deep Q-Networks", ParagraphStyle(
         "ct", fontName="Helvetica-Bold", fontSize=26, leading=32, textColor=colors.HexColor(NAVY))),
         Spacer(1, 6 * mm),
         P("Project 10 - Real-World RL Homework Projects, Unit 5", ParagraphStyle("cs", fontName="Helvetica", fontSize=13, textColor=colors.HexColor(BLUE))),
         Spacer(1, 4 * mm),
         P("Multiple agents control the signals of four interconnected intersections to reduce average waiting time.",
           ParagraphStyle("cs2", fontName="Helvetica", fontSize=11, leading=15, textColor=colors.HexColor(GREY))),
-        Spacer(1, 14 * mm), Image(figs["network"], width=82 * mm, height=82 * 5.2 / 6 * mm), Spacer(1, 10 * mm),
+        Spacer(1, 6 * mm)] + cover_team(f, st, W) + [
+        Spacer(1, 6 * mm), Image(figs["network"], width=60 * mm, height=60 * 5.2 / 6 * mm), Spacer(1, 5 * mm),
         tbl([["Control approaches", "Fixed-time (baseline) vs independent Multi-Agent DQN"],
              ["Simulation backend for results", backend_label(f)],
              ["DQN implementation used", "PyTorch" if f["impl"] == "torch" else "NumPy (identical algorithm; PyTorch version also provided)"],
              ["Date generated", datetime.date.today().strftime("%d %B %Y")],
-             ["Contents", "Problem formulation | Architecture | Complete Python code | Training methodology | "
-                          "Learning curves & results | 5 slides | Limitations & conclusion | References"]],
+             ["Contents", P("Problem formulation | Architecture | Complete Python code | Training methodology | "
+                          "Learning curves & results | 5 slides | Limitations & conclusion | References", st["small"])]],
             [48 * mm, W - 48 * mm], header=False, fs=8.8, align_right_from=None),
         Spacer(1, 6 * mm), P(backend_note(f), st["note"]), NextPageTemplate("body"), PageBreak()]
     # ---------------------------------------------------------------- TOC
@@ -743,7 +788,23 @@ def write_readme(f, out):
     for r in f["rows"]:
         fm = r["fmt"].format
         lines.append(f"| {r['label']} | {fm(r['fixed_m'])} | {fm(r['dqn_m'])} | {r['change']:+.1f}% |")
+    t = f["team"]
+    sub = " | ".join(x for x in [t["label"], t["course"]] if x)
+    team_md = ""
+    if t["members"]:
+        team_md = ("## Team" + (f" - {t['team_name']}" if t["team_name"] else "") + "\n\n| Name | Roll number |\n|---|---|\n"
+                   + "\n".join(f"| {x['name']} | {x.get('roll', '')} |" for x in t["members"]) + "\n\n")
     txt = f"""# Traffic-Signal Coordination with Multi-Agent DQN (Project 10)
+{('**' + sub + '**') if sub else ''}
+
+{team_md}## Deliverables (all in `results/`)
+| Deliverable | File |
+|---|---|
+| Complete PDF (formulation, architecture, code, methodology, results, slides, limitations, references) | [Traffic_Signal_Coordination_Complete_Submission.pdf](results/Traffic_Signal_Coordination_Complete_Submission.pdf) |
+| Five presentation slides | [Five_Slide_Presentation.pptx](results/Five_Slide_Presentation.pptx) |
+| Experiment results (CSV) | [Experiment_Results.csv](results/Experiment_Results.csv), [summary.csv](results/summary.csv) |
+| Learning curves | [Learning_Curves.png](results/Learning_Curves.png) |
+| Source code | `run_all.py`, `tsc/`, `check_setup.py`, `make_report.py` |
 
 Four signalised intersections (2 x 2 grid) are controlled by **four independent Double-DQN agents**
 and compared with **fixed-time control**. Stack: Python 3.13, Eclipse SUMO 1.28, TraCI, PyTorch, NumPy, Pandas, Matplotlib.
